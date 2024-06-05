@@ -1,26 +1,33 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collect form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-  $receiving_email_address = 'softit085@gmail.com';
+    // Set recipient email address
+    $to = "sofiit085@gmail.com";
 
-  if( file_exists($php_email_form = 'vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+    // Set email subject
+    $subject = "New Contact Form Submission";
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+    // Build the email content
+    $email_content = "Name: " . htmlspecialchars($name) . "\n";
+    $email_content .= "Email: " . htmlspecialchars($email) . "\n\n";
+    $email_content .= "Message:\n" . htmlspecialchars($message) . "\n";
 
-  
+    // Build the email headers
+    $email_headers = "From: " . htmlspecialchars($name) . " <" . htmlspecialchars($email) . ">";
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
-
-  echo $contact->send();
+    // Send the email
+    if (mail($to, $subject, $email_content, $email_headers)) {
+        // Redirect to a thank you page (optional)
+        header("Location: thank_you.html");
+        exit;
+    } else {
+        echo "There was a problem sending your message. Please try again.";
+    }
+} else {
+    echo "Invalid request method.";
+}
 ?>
