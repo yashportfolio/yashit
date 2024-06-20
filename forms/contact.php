@@ -1,25 +1,32 @@
 <?php
-  
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['_replyto']);
+    $message = htmlspecialchars($_POST['message']);
 
-  if( file_exists($php_email_form = 'js/validate.js' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+    $data = [
+        'name' => $name,
+        '_replyto' => $email,
+        'message' => $message
+    ];
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+    $url = 'https://formspree.io/f/xrgnnoyy';
 
+    $options = [
+        'http' => [
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data)
+        ]
+    ];
 
+    $context  = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
-
-  echo $contact->send();
+    if ($result === FALSE) { 
+        echo "Error in submission.";
+    } else {
+        echo "Message sent successfully!";
+    }
+}
 ?>
