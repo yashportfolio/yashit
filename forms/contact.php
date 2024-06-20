@@ -1,32 +1,26 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['_replyto']);
-    $message = htmlspecialchars($_POST['message']);
 
-    $data = [
-        'name' => $name,
-        '_replyto' => $email,
-        'message' => $message
-    ];
+  $receiving_email_address = 'softit085@gmail.com';
 
-    $url = 'https://formspree.io/f/xrgnnoyy';
+  if( file_exists($php_email_form = 'vendor/php-email-form/php-email-form.php' )) {
+    include( $php_email_form );
+  } else {
+    die( 'Unable to load the "PHP Email Form" Library!');
+  }
 
-    $options = [
-        'http' => [
-            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method'  => 'POST',
-            'content' => http_build_query($data)
-        ]
-    ];
+  $contact = new PHP_Email_Form;
+  $contact->ajax = true;
+  
+  $contact->to = $receiving_email_address;
+  $contact->from_name = $_POST['name'];
+  $contact->from_email = $_POST['email'];
+  $contact->subject = $_POST['subject'];
 
-    $context  = stream_context_create($options);
-    $result = file_get_contents($url, false, $context);
+  
 
-    if ($result === FALSE) { 
-        echo "Error in submission.";
-    } else {
-        echo "Message sent successfully!";
-    }
-}
+  $contact->add_message( $_POST['name'], 'From');
+  $contact->add_message( $_POST['email'], 'Email');
+  $contact->add_message( $_POST['message'], 'Message', 10);
+
+  echo $contact->send();
 ?>
