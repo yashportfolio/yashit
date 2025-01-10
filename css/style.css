@@ -1104,3 +1104,27 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+/* Certificates Section */
+.certificates {
+  padding: 60px 0;
+}
+.certificate-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.certificate-item h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.certificate-item p {
+  font-size: 14px;
+  color: #777;
+}
+.certificate-item .btn {
+  margin-top: 15px;
+}
+/* Certificates Section End*/
