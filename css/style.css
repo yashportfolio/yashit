@@ -1175,4 +1175,44 @@ section {
   background: #333;
   color: #fff;
 }
+/* Dark mode End */
+
+/* smooth scorlig*/
+html {
+  scroll-behavior: smooth;
+}
+/* Smooth scorling end */
+/* buttuon size */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+/* Button size End */
+/* hawwor effect */
+.social-links a {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px);
+  background: #149ddd !important;
+}
+/* hawwor enffect end */
+
+/* Improve Typography */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+/* Improve Typography end */
 
