@@ -317,33 +317,39 @@
 
       </div>
     </section>
-    <!-- ======= Certificates Section ======= -->
-<section id="certificates" class="certificates">
-  <div class="container">
-    <div class="section-title">
-      <h2>Certificates</h2>
-    </div>
-    <div class="row">
-      <!-- Certificate 1 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="certificate-item">
-          <h4>Windows Server Administrator</h4>
-          <p>Issued by: The Digital Adda </p>
-          <p>Issued on: January 2025</p>
-          <a href="https://drive.google.com/file/d/1dVgXuHHUvDQAt5t4SkNCRfK3V8duuqLk/view?usp=drivesdk" target="_blank" class="btn btn-primary">View Certificate</a>
+     <!-- ======= Certificates Section ======= -->
+   import { useState } from "react";
+import "./styles.css";
+
+export default function CertificateSection() {
+    const [darkMode, setDarkMode] = useState(false);
+
+    return (
+        <div className={`container ${darkMode ? "dark" : "light"}`}>
+            <button id="darkModeToggle" onClick={() => setDarkMode(!darkMode)}>
+                Toggle Dark Mode
+            </button>
+            <h2>My Certifications</h2>
+            <div className="certificates">
+                <div className="card">
+                    <span className="icon">🖥</span>
+                    <h3>Windows Server Administrator</h3>
+                    <p>Issued by: The Digital Adda</p>
+                    <p>Issued on: January 2025</p>
+                    <button className="view-btn">View Certificate</button>
+                </div>
+                <div className="card">
+                    <span className="icon">🐧</span>
+                    <h3>Linux System Administrator</h3>
+                    <p>Issued by: The Digital Adda</p>
+                    <p>Issued on: January 2025</p>
+                    <button className="view-btn">View Certificate</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- Certificate 2 -->
-      <div class="col-lg-4 col-md-6">
-        <div class="certificate-item">
-          <h4>Linux System Administrator</h4>
-          <p>Issued by: The Digital Adda</p>
-          <p>Issued on: January 2025</p>
-          <a href="https://drive.google.com/file/d/1dXVlFGssDL-zEG9aDwhi0zAhdgsb1NWp/view?usp=drivesdk" target="_blank" class="btn btn-primary">View Certificate</a>
-        </div>
-      </div>
-    
-<!-- End Certificates Section -->
+    );
+}
+    <!-- End Certificates Section -->
     <section id="portfolio" class="portfolio section-bg">
       <div class="container">
 
