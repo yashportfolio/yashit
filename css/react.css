@@ -1,0 +1,44 @@
+const styles = `
+.container {
+    padding: 20px;
+    text-align: center;
+}
+.certificates {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.dark {
+    background-color: #1a1a1a;
+    color: white;
+}
+.light {
+    background-color: #f9f9f9;
+    color: black;
+}
+.view-btn {
+    background: blue;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.view-btn:hover {
+    background: darkblue;
+}`;
+
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
