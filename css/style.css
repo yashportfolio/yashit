@@ -1106,25 +1106,56 @@ section {
 }
 
 /* Certificates Section */
+/* Certificates Section */
 .certificates {
   padding: 60px 0;
+  background: #f9f9f9;
 }
+
 .certificate-item {
   background: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
   padding: 20px;
   margin-bottom: 30px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.certificate-item h4 {
-  font-size: 18px;
+
+.certificate-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-item .icon {
+  font-size: 40px;
+  color: #149ddd;
+  margin-bottom: 15px;
+}
+
+.certificate-item h3 {
+  font-size: 20px;
+  font-weight: 600;
   margin-bottom: 10px;
 }
+
 .certificate-item p {
   font-size: 14px;
   color: #777;
+  margin-bottom: 10px;
 }
+
 .certificate-item .btn {
   margin-top: 15px;
+  background: #149ddd;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.certificate-item .btn:hover {
+  background: #0d8ac5;
 }
 /* Certificates Section End*/
