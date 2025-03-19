@@ -734,3 +734,172 @@ document.onkeydown = function(event) {
 
 
 </html>
+
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash IT - IT Administrator Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Easy Customization */
+        :root {
+            --primary-color: #2ecc71;  /* Tech Green */
+            --secondary-color: #3498db; /* Professional Blue */
+            --dark-bg: #2c3e50;
+            --light-text: #ecf0f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 40px 20px;
+        }
+
+        .project-card {
+            background: #34495e;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Skills Animation */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .skill-chip {
+            background: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #34495e;
+            border-radius: 10px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: #2c3e50;
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <!-- Add navigation items here -->
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Yash IT Administrator</h1>
+        <p>Network Security | Server Management | Cloud Infrastructure</p>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects-grid">
+        <div class="project-card">
+            <h3>Network Security Audit</h3>
+            <p>Implemented firewall rules reducing breaches by 40%</p>
+            <div class="tech-stack">
+                <span class="skill-chip">Cisco</span>
+                <span class="skill-chip">Wireshark</span>
+            </div>
+        </div>
+        <!-- Add more project cards -->
+    </section>
+
+    <!-- Skills -->
+    <section class="skills-container">
+        <span class="skill-chip"><i class="fas fa-shield-alt"></i> Cybersecurity</span>
+        <span class="skill-chip"><i class="fas fa-server"></i> Server Management</span>
+        <!-- Add more skills -->
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form">
+        <h2>Get in Touch</h2>
+        <form>
+            <input type="text" class="form-input" placeholder="Name">
+            <input type="email" class="form-input" placeholder="Email">
+            <textarea class="form-input" rows="5" placeholder="Message"></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Add smooth scroll and form validation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
